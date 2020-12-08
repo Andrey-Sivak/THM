@@ -1,0 +1,25 @@
+.container {
+  max-width: $container;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include response-to(large) {
+    padding: 0 25px;
+  }
+
+  @include response-to(small) {
+    padding: 0 15px;
+  }
+}
+
+main {
+  padding-top: 96px;
+
+  @include response-to(medium) {
+    padding-top: 65px;
+  }
+
+  &.home {
+    padding-top: 0;
+  }
+}

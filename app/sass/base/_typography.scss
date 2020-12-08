@@ -1,0 +1,22 @@
+$roboto: 'Roboto';
+$montserrat: 'Montserrat';
+$arsenal: 'Arsenal';
+$helvetica: 'Helvetica';
+
+$dir: '../fonts';
+
+@include font-face( $dir, $arsenal, 'Bold' );
+
+@include font-face( $dir, $helvetica, 'Bold' );
+
+@include font-face( $dir, $roboto, 'Bold' );
+@include font-face( $dir, $roboto, 'Medium' );
+@include font-face( $dir, $roboto, 'Light' );
+@include font-face( $dir, $roboto, 'Regular' );
+
+@include font-face( $dir, $montserrat, 'Regular' );
+@include font-face( $dir, $montserrat, 'Bold' );
+@include font-face( $dir, $montserrat, 'ExtraBold' );
+@include font-face( $dir, $montserrat, 'Light' );
+@include font-face( $dir, $montserrat, 'Medium' );
+@include font-face( $dir, $montserrat, 'SemiBold' );
