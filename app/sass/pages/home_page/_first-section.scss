@@ -1,0 +1,91 @@
+& .first-section {
+  background-image: url("../../../img/main-first-sec-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 100px;
+  text-align: center;
+  height: 80vh;
+  min-height: 600px;
+  margin: 0 auto;
+  color: #fff;
+
+  &__caption {
+    margin-bottom: 73px;
+    text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: capitalize;
+  }
+
+  & .form {
+    width: 100%;
+    max-width: 625px;
+    margin: 0 auto;
+
+    &__title {
+      font-weight: 900;
+      font-size: 32px;
+      line-height: 38px;
+      text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
+      margin-bottom: 18px;
+    }
+
+    &-group {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      & .check-address__input {
+        display: block;
+        width: 522px;
+        background-color: #fff;
+        box-shadow: 0 7px 7px rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
+        padding: 21px 30px;
+        font-size: 16px;
+        line-height: 19px;
+        position: relative;
+        z-index: 1;
+      }
+
+      & .check-address__btn {
+        display: block;
+        background-color: $main-color;
+        width: 120px;
+        box-shadow: 0 7px 7px rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 2px;
+        border: none;
+        cursor: pointer;
+        background-image: url("../../../img/search.png");
+        background-size: initial;
+        background-repeat: no-repeat;
+        background-position: center 15px;
+        @include transition-ease;
+
+        &:hover {
+          background-color: $secondary-color;
+        }
+      }
+    }
+
+    &__note {
+      text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 0.01em;
+      padding: 5px 60px;
+      background-image: url("../../../img/Rectangle27.png");
+      background-size: cover;
+      background-position: center;
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+}

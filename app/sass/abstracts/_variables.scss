@@ -4,14 +4,13 @@ $breakpoints: (
         large: 1200px
 );
 
-$colors: (
-        main-color: #6F9890,
-        secondary-color: #C4C4C4
-);
+$main-color: #21C11E;
+$secondary-color: #50AC2F;
+$links-color: #007AFF;
 
 $z-layers: (
         bottomless-pit: -9999,
         default: 1,
 );
 
-$container: 1120px;
+$container: 1320px;

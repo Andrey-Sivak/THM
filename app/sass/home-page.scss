@@ -3,6 +3,8 @@
 @import "libs/owl.carousel.min";
 @import "libs/animate";
 
-body {
-  background-color: #DA2314;
+.home-page {
+  @import "pages/home_page/first-section";
+  @import "pages/home_page/second-section";
+  @import "pages/home_page/third-section";
 }

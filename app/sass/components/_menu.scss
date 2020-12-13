@@ -1,0 +1,36 @@
+.menu {
+  background-color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+
+  & .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    padding: 0 60px;
+    @include transition-ease;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000;
+    position: relative;
+
+    &:not(:last-of-type):after {
+      position: absolute;
+      right: 0;
+      content: '';
+      width: 1px;
+      top: 0;
+      bottom: 0;
+      background-color: rgba(#000, .4);
+    }
+
+    &:hover {
+      color: $secondary-color;
+      text-decoration: underline;
+    }
+  }
+}
