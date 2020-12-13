@@ -1,0 +1,68 @@
+@import "main";
+
+@import "libs/animate";
+
+.question-page {
+
+  .page-caption {
+    padding-top: 80px;
+    padding-bottom: 56px;
+  }
+
+  .question {
+
+    &__top-note {
+      text-align: center;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 140.6%;
+      text-transform: capitalize;
+    }
+
+    &__btns {
+      display: flex;
+      max-width: 480px;
+      width: 100%;
+      flex-wrap: wrap;
+      margin: 25px auto 100px;
+      position: relative;
+
+      .btn {
+        margin: 0 1% 2%;
+        @include btn($width: 31%, $padding: 21px);
+        @include transition-ease;
+
+        &.dark-green {
+          @include btn-color($color: #50AC2F);
+        }
+
+        &.light-green {
+          @include btn-color($color: #8ACD43);
+        }
+
+        &.gold {
+          @include btn-color($color: #E3C255);
+        }
+
+        &.orange {
+          @include btn-color($color: #FD9B26);
+        }
+
+        &.red {
+          @include btn-color($color: #E15628);
+        }
+      }
+
+      .question__title {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) translateX(-100%);
+        left: -45px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 140.6%;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

@@ -97,28 +97,30 @@
 
 // mixins only for this project
 
-@mixin btn( $color: null, $width: null, $padding: null, $upper: false, $hover-color: lighten(color, 20%) ) {
-  .btn {
-    color: #fff;
-    background-color: $color;
-    width: $width;
-    padding: $padding 0;
-    @if $upper {
-      text-transform: uppercase;
-    } @else {
-      text-transform: capitalize;
-    }
+@mixin btn( $width: null, $padding: null, $upper: false ) {
+  color: #fff;
+  width: $width;
+  padding: $padding 0;
+  @if $upper {
+    text-transform: uppercase;
+  } @else {
+    text-transform: capitalize;
+  }
 
-    text-shadow: 0 7px 7px rgba(0, 0, 0, 0.4);
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 26px;
-    display: block;
-    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.4);
-    border-radius: 4px;
+  text-shadow: 0 7px 7px rgba(0, 0, 0, 0.4);
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  display: block;
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  text-align: center;
+}
 
-    &:hover {
-      background-color: $hover-color;
-    }
+@mixin btn-color($color: null) {
+  background-color: $color;
+
+  &:hover {
+    background-color: lighten($color, 5%);
   }
 }
