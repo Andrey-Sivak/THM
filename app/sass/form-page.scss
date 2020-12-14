@@ -1,0 +1,105 @@
+@import "main";
+
+@import "libs/animate";
+
+.form-page {
+
+  .page-caption {
+    margin-top: 83px;
+    margin-bottom: 53px;
+  }
+
+  .form {
+    max-width: 310px;
+    width: 100%;
+    margin: 0 auto 100px;
+
+    &-group {
+      width: 100%;
+      position: relative;
+      margin-bottom: 28px;
+
+      &.checkbox {
+        margin-top: 62px;
+        margin-bottom: 12px;
+      }
+    }
+
+    &__input {
+      box-shadow: 0 7px 7px rgba(0, 0, 0, 0.4);
+      background-color: #fff;
+      display: block;
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      font-size: 18px;
+      padding: 15px 20px;
+      @include transition-ease;
+
+      @include on-event {
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    &__label {
+      position: absolute;
+      font-weight: 600;
+      font-size: 25px;
+      line-height: 140.6%;
+      text-transform: capitalize;
+      left: -155px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .check-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+      width: fit-content;
+
+      .form__input {
+        display: none;
+
+        &:checked + .checkbox:before {
+          content: '';
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          background-image: url("../img/check.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .checkbox {
+        display: block;
+        width: 17px;
+        height: 17px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        margin-right: 6px;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .text {
+        color: rgba(0, 0, 0, 0.5);
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 140.6%;
+      }
+    }
+
+    &__btn {
+      @include btn($width: 240px, $padding: 17px, $upper: true);
+      @include btn-color($color: $secondary-color);
+      margin: 0 auto;
+    }
+  }
+}
