@@ -35,6 +35,13 @@ class CheckPhone extends  Error {
     }
 }
 
+class CheckCheckbox extends  Error {
+    constructor( message ) {
+        super( message );
+        this.name = 'CheckCheckbox';
+    }
+}
+
 class Validation {
     constructor( options ) {
         this.submitBtn = document.getElementById(options.submitBtn);
@@ -43,6 +50,7 @@ class Validation {
             firstName: document.getElementById(options.firstName),
             phone: document.getElementById(options.phone),
             email: document.getElementById(options.email),
+            checkbox: document.getElementById(options.checkbox),
         };
 
         this.promocode = false;
@@ -53,7 +61,7 @@ class Validation {
 
     checkEmpty( inputValue ) {
         if( inputValue === '' ) {
-            throw new CheckEmpty( 'Это поле обязательно для заполнения' );
+            throw new CheckEmpty( 'This field is required' );
         }
 
         return inputValue;
@@ -63,10 +71,10 @@ class Validation {
         const inputLength = inputValue.length;
 
         if( inputLength < minLength ) {
-            throw new CheckLength( `Поле должно содержать не менее ${minLength} символов` );
+            throw new CheckLength( `The field must contain at least ${minLength} characters` );
         }
         if( inputLength > maxLength ) {
-            throw new CheckLength( `Количество символов превышает ${maxLength}. Введите корректные данные` );
+            throw new CheckLength( `The number of characters is more than ${maxLength}. Enter the correct data` );
         }
 
     }
@@ -80,7 +88,17 @@ class Validation {
         const regExp = /^[a-zA-Z]+$/;
 
         if( !regExp.test( inputValue ) ) {
-            throw new NameValidationError( 'Допустимы только буквы русского алфавита' );
+            throw new NameValidationError( 'Only letters of the English alphabet are allowed' );
+        }
+
+        return inputValue;
+    }
+
+    checkCheckbox( input ) {
+        const inputValue = input.checked;
+
+        if( !inputValue ) {
+            throw new CheckCheckbox( 'This field is required' );
         }
 
         return inputValue;
@@ -95,7 +113,7 @@ class Validation {
         const regExp = /\+1\(\d{3}\)\d{3}-\d{2}-\d{2}/;
 
         if( !regExp.test( inputValue ) || inputValue.length !== numberLength ) {
-            throw new CheckPhone( 'Некорректный номер телефона' );
+            throw new CheckPhone( 'Invalid phone number' );
         }
 
         return inputValue;
@@ -116,7 +134,7 @@ class Validation {
         const regExp = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
 
         if( !regExp.test(inputValue) ) {
-            throw new CheckEmail( 'Некорректный формат Email' );
+            throw new CheckEmail( 'Invalid Email format' );
         }
 
         return inputValue;
@@ -183,6 +201,15 @@ class Validation {
                         errors.push(e);
                     }
                     break;
+
+                case 'checkbox' :
+                    try {
+                        this.checkCheckbox( elem );
+                    } catch (e) {
+                        this.catchErrors( elem, e, CheckCheckbox );
+                        errors.push(e);
+                    }
+                    break;
             }
         }
 
@@ -194,7 +221,6 @@ class Validation {
     init() {
         this.maskPhone( this.inputs.phone );
         this.submitBtn.addEventListener('click',  (e) => {
-            e.preventDefault();
 
             const warningMessages = document.getElementsByClassName('warning');
             let invalidInputs = document.getElementsByClassName('warn');

@@ -21,7 +21,17 @@
 
       &.checkbox {
         margin-top: 62px;
-        margin-bottom: 12px;
+        margin-bottom: 17px;
+
+        .warning {
+          bottom: -17px;
+        }
+      }
+
+      .warning {
+        position: absolute;
+        color: $warning-color;
+        bottom: -25px;
       }
     }
 
@@ -37,6 +47,14 @@
 
       @include on-event {
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.7);
+      }
+
+      &.warn {
+        border-color: $warning-color;
+
+        & + .checkbox {
+          border-color: $warning-color!important;
+        }
       }
     }
 
@@ -56,6 +74,7 @@
       position: relative;
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       margin-left: auto;
       margin-right: auto;
       width: fit-content;

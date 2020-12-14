@@ -6,7 +6,6 @@ import { Validation } from "./validationClass";
 
 
 window.addEventListener('load', function () {
-    console.log(1);
 
     /*(function menu() {
         const menu = new Menu({
@@ -19,22 +18,25 @@ window.addEventListener('load', function () {
         menu.init();
     })();*/
 
-    /*(function validation() {
-        const form = document.querySelector('#form-page__form');
+    (function validation() {
+        const form = document.querySelector('#form');
         if( !form ) {
             return;
         }
 
         const valid = new Validation({
-            submitBtn: 'form-page__form_btn',
-            firstName: 'first-name',
-            lastName: 'last-name',
+            submitBtn: 'form-btn',
+            firstName: 'f-name',
+            lastName: 'l-name',
             phone: 'phone',
+            checkbox: 'check',
         });
+
+        console.log(valid);
 
         valid.init();
 
-        addCalculatorData();
+        // addCalculatorData();
 
         function addCalculatorData() {
             const ageInput = form.querySelector('#age');
@@ -46,5 +48,5 @@ window.addEventListener('load', function () {
             ageInput.value = ageValue;
             problemInput.value = problemValue;
         }
-    })();*/
+    })();
 });
