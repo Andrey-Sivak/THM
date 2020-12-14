@@ -115,6 +115,8 @@
   box-shadow: 0 7px 7px rgba(0, 0, 0, 0.4);
   border-radius: 4px;
   text-align: center;
+  border: none;
+  cursor: pointer;
 }
 
 @mixin btn-color($color: null) {
