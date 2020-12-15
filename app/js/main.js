@@ -36,6 +36,16 @@ window.addEventListener('load', function () {
 
         valid.init();
 
+        valid.submitBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            if(valid.success) {
+                setTimeout( function () {
+                    document.location.href = '/thank-you.html';
+                },1000)
+            }
+        });
+
         // addCalculatorData();
 
         function addCalculatorData() {
