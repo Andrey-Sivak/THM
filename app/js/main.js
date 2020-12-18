@@ -2,7 +2,7 @@
 
 import { Menu } from "./Menu";
 import { Validation } from "./validationClass";
-
+import { Calculator } from "./Calculator";
 
 
 window.addEventListener('load', function () {
@@ -17,6 +17,19 @@ window.addEventListener('load', function () {
 
         menu.init();
     })();*/
+
+    (function calculator() {
+        const calc = new Calculator({
+            wrapID: 'calculator',
+            handleClass: 'calculator__bar_handle',
+            progressClass: 'calculator__bar_progress',
+            valueClass: 'calculator__value',
+            inputClass: 'calculator__input',
+            buttonsWrapClass: 'calculator__btns',
+        });
+
+        calc.build();
+    })();
 
     (function validation() {
         const form = document.querySelector('#form');

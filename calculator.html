@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!--<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+  <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">-->
+
+  <title>THV</title>
+  <link rel="stylesheet" type="text/css" href="dist/css/calculator-page.min.css">
+  <script src="dist/js/main.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="#" class="header__logo">
+      <img src="./dist/img/logo.png" alt="logo" class="header__logo_img">
+    </a>
+    <div class="header__right">
+      <p class="header__right_phone">Call us at <a href="tel:(456)-564-4543">(456)-564-4543</a></p>
+      <a href="#" class="header__right_btn">Book an appointment</a>
+    </div>
+  </div>
+</header>
+<nav class="menu">
+  <div class="container">
+    <a href="#" class="menu__item">About THV™</a>
+    <a href="#" class="menu__item">How THV™ works</a>
+    <a href="#" class="menu__item">Book an appointment with an agent</a>
+  </div>
+</nav>
+
+<main class="calculator-page container">
+  <p class="page-caption"><span>we found: 34 gwendolen avenue !</span></p>
+  <h1 class="page-caption">Do you know what is the current home value (approx) ?</h1>
+  <div class="calculator" id="calculator">
+    <div class="calculator__value">
+      $10.000
+      <div class="calculator__value-note">
+        Slide to estimate your property value
+      </div>
+    </div>
+    <input type="range"
+           class="calculator__input"
+           id="calculator__input"
+           min="10000"
+           max="2000000"
+           step="10000">
+    <div class="calculator__bar">
+      <div class="calculator__bar_progress"></div>
+      <div class="calculator__bar_handle"></div>
+    </div>
+    <p class="calculator__min-value">$10.000</p>
+    <p class="calculator__max-value">$2.000.000</p>
+  </div>
+  <div class="calculator__btns">
+    <a href="#" class="calculator__btn active">i don’t know yet</a>
+    <a href="#" class="calculator__btn">Continue</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <nav class="menu">
+      <a href="#" class="menu__item">About THV™</a>
+      <a href="#" class="menu__item">How THV™ works</a>
+      <a href="#" class="menu__item">Book an appointment with an agent</a>
+    </nav>
+    <p class="footer__text">The trademarks MLS®, Multiple Listing Service® and the associated logos are owned by The Canadian Real Estate Association (CREA) and identify the quality of services provided by real estate professionals who are members of CREA. Used under license.</p>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/imask"></script>
+
+</body>
+</html>
