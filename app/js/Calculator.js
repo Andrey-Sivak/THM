@@ -10,7 +10,7 @@ class Calculator {
         this.input = document.querySelector(`.${options.inputClass}`);
         this.buttons = document.querySelector(`.${options.buttonsWrapClass}`);
         this.min = 10000;
-        this.max = 2000000 + this.min;
+        this.max = 2010000;
 
         this.data = {
             handleLeft: this.handle.getBoundingClientRect().left,
