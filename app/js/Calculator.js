@@ -68,7 +68,6 @@ class Calculator {
         const step =  this.data.wrapWidth / ((this.max - this.min) / this.min);
         let steps = Math.ceil(Math.ceil(num) / step);
         let str = `$${steps * this.min}`;
-        console.log(str.length);
         if(str.length < 8 && str.length >= 5) {
             str = `${str.slice(0, -3)}.000`;
         } else if(str.length >= 8 && str.length < 11) {
