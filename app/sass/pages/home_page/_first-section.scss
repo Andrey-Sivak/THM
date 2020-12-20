@@ -37,6 +37,46 @@
       align-items: stretch;
       justify-content: center;
       margin-bottom: 20px;
+      position: relative;
+
+      .toltip {
+        position: absolute;
+        color: red;
+        border: 1px solid red;
+        background-color: #fff;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: 600;
+        z-index: 22;
+        border-radius: 5px;
+        bottom: 0;
+        transform: translateY(105%);
+        left: 0;
+        cursor: pointer;
+      }
+
+      &__livesearch {
+        position: absolute;
+        width: 508px;
+        background-color: #e5e3df;
+        z-index: 2;
+        top: 60px;
+        left: 0;
+
+        &_link {
+          text-align: left;
+          padding: 5px 10px;
+          border-bottom: 1px solid #000;
+          color: #000;
+          font-size: 18px;
+          display: block;
+          cursor: pointer;
+
+          &:hover {
+            background-color: lighten(#e5e3df, 5%);
+          }
+        }
+      }
 
       & .check-address__input {
         display: block;
@@ -51,6 +91,11 @@
         line-height: 19px;
         position: relative;
         z-index: 1;
+
+        &.warn {
+          border: 1px solid red;
+          box-shadow: 0 0 15px red;
+        }
       }
 
       & .check-address__btn {

@@ -13,6 +13,11 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">-->
 
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+          type="text/javascript" charset="utf-8"></script>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+          type="text/javascript" charset="utf-8"></script>
+
   <title>THV</title>
   <link rel="stylesheet" type="text/css" href="dist/css/home-page.min.css">
   <script src="dist/libs/wow.js"></script>
@@ -61,10 +66,13 @@
         <p class="form__title">Check your future home value</p>
         <div class="form-group">
           <input type="text"
+                 autocomplete="off"
                  class="check-address__input"
                  placeholder="Enter your property address"
                  id="check-address__input"
                  name="address">
+          <div id="livesearch" class="form-group__livesearch"></div>
+
           <button type="button"
                   class="check-address__btn"
                   id="check-address__btn"></button>
@@ -73,6 +81,8 @@
       </form>
     </div>
   </section>
+
+<!--  <div style="width: 640px; height: 480px" id="mapContainer"></div>-->
 
   <section class="second-section">
     <div class="container">
