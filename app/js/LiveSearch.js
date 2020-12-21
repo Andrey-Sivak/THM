@@ -107,6 +107,19 @@ class LiveSearch {
         },1500)
     }
 
+    changeNoteContent(elem, stringsArr) {
+        for(let i = 1; i < stringsArr.length + 1; i++) {
+            let timeout = 300;
+            if(i !== 1) {
+                timeout = 2000 * i;
+            }
+
+            setTimeout( function () {
+                elem.innerHTML = stringsArr[i - 1];
+            }, timeout);
+        }
+    }
+
     listeners() {
         const self = this;
 
@@ -162,11 +175,26 @@ class LiveSearch {
                 return;
             }
 
-            setTimeout( function () {
-                if( success ) {
+            if( success ) {
+                self.submitBtn.classList.add('active');
+
+                self.wrap.insertAdjacentHTML('afterbegin', `
+                    <span class="form-group__note"></span>
+                `);
+
+                const note = document.querySelector('.form-group__note');
+
+                self.changeNoteContent(note, [
+                    'Connect to MLS…',
+                    `Checking ${self.value} ...`,
+                    'Fetching data ...',
+                    'Success !',
+                ]);
+
+                setTimeout( () => {
                     self.submitSuccessAddress(self.value, 'http://localhost:3000/calculator.html');
-                }
-            }, 1000);
+                },8000);
+            }
         })
     }
 

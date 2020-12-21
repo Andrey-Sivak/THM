@@ -76,8 +76,6 @@ window.addEventListener('load', function () {
             checkbox: 'check',
         });
 
-        console.log(valid);
-
         valid.init();
 
         valid.submitBtn.addEventListener('click', function (e) {
