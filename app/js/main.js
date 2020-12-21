@@ -18,12 +18,13 @@ window.addEventListener('load', function () {
 
         menu.init();
     })();*/
-    
+
     (function liveSearch() {
 
         const platform = new H.service.Platform({
             'apikey': 'UpZjlcVJKVZ8IwCPeXjfD5F0OJZnHnBHtkeRgnG6ivU',
         });
+
         const service = platform.getSearchService();
 
         if(!document.getElementById('livesearch')) {
@@ -56,6 +57,10 @@ window.addEventListener('load', function () {
         });
 
         calc.build();
+
+        const addressElem = document.querySelector('.page-caption>span');
+        const address = localStorage.getItem('address');
+        addressElem.innerHTML = `we found: ${address} !`;
     })();
 
     (function validation() {

@@ -51,14 +51,18 @@ class Calculator {
             if( this.value.children[0] ) {
                 this.value.removeChild(this.value.children[0]);
             }
+
             this.value.style.left = `${diff}px`;
             this.handle.style.left = `${diff}px`;
             this.progressBar.style.width = `${diff}px`;
             this.changeInputValue(diff);
             const buttons = [...this.buttons.children];
+            const self = this;
+
             buttons.forEach( function (button) {
                 if( !button.classList.contains('active') ) {
                     button.classList.add('active');
+                    self.addButtonsLink();
                 }
             })
         }
@@ -76,18 +80,56 @@ class Calculator {
         this.value.innerHTML = str;
     }
 
+    changeInput() {
+        this.input.setAttribute('value', this.value.innerHTML);
+        console.log(this.value.innerHTML);
+    }
+
     changeValue() {
         document.body.addEventListener('mousemove', this.checkMouseCoords);
     }
 
+    addButtonsLink() {
+        const self = this;
+        const buttons = [...this.buttons.children];
+        buttons.forEach( function (button) {
+            if(button.classList.contains('active')) {
+               button.addEventListener('click', function() {
+                   const btnValue = this.innerHTML;
+                   const value = self.input.value;
+
+                   window.localStorage.setItem('pressed button', btnValue);
+                   window.localStorage.setItem('property value', value);
+
+                   setTimeout( function () {
+                       window.location.href =
+                           button.getAttribute('href');
+                   },300);
+               })
+            }
+        })
+    }
+
     build() {
         const self = this;
+
+        [...this.buttons.children].forEach( function (button) {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+            })
+        });
+
+        this.addButtonsLink();
+
         this.handle.addEventListener('mousedown', function () {
             self.changeValue();
         });
 
+
+
         document.body.addEventListener('mouseup', function () {
             this.removeEventListener('mousemove', self.checkMouseCoords);
+            self.changeInput();
         })
     }
 }
