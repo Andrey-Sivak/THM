@@ -4,6 +4,7 @@ import { Menu } from "./Menu";
 import { Validation } from "./validationClass";
 import { Calculator } from "./Calculator";
 import { LiveSearch } from "./LiveSearch";
+import { Question } from "./Question";
 
 
 window.addEventListener('load', function () {
@@ -18,6 +19,19 @@ window.addEventListener('load', function () {
 
         menu.init();
     })();*/
+
+    (function questionPage() {
+        const page = document.querySelector('.question-page');
+        if(!page) {
+            return;
+        }
+
+        const question = new Question({
+            wrapClass: 'question',
+        });
+
+        question.init();
+    })();
 
     (function liveSearch() {
 
