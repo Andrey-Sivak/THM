@@ -120,7 +120,6 @@ class LiveSearch {
 
         this.input.addEventListener('keyup', () => {
 
-            console.log(self.value);
             if(self.value.length > 2) {
                 this.service.autosuggest({
                     q: `${self.value}`,
@@ -151,8 +150,6 @@ class LiveSearch {
                     return el.title === self.value;
                 });
 
-                console.log(checkCorrectInput, self.value);
-
                 if( !checkCorrectInput ) {
                     success = false;
                     this.showTolTip(this.input, 'Please, check your input. <br> We can\'t find this address');
@@ -167,7 +164,7 @@ class LiveSearch {
 
             setTimeout( function () {
                 if( success ) {
-                    self.submitSuccessAddress(this.value, 'http://localhost:3000/calculator.html');
+                    self.submitSuccessAddress(self.value, 'http://localhost:3000/calculator.html');
                 }
             }, 1000);
         })

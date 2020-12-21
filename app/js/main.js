@@ -21,15 +21,14 @@ window.addEventListener('load', function () {
 
     (function liveSearch() {
 
+        if(!document.getElementById('livesearch')) {
+            return false;
+        }
         const platform = new H.service.Platform({
             'apikey': 'UpZjlcVJKVZ8IwCPeXjfD5F0OJZnHnBHtkeRgnG6ivU',
         });
 
         const service = platform.getSearchService();
-
-        if(!document.getElementById('livesearch')) {
-            return false;
-        }
 
         const searchField = new LiveSearch({
             inputID: 'check-address__input',
