@@ -13,23 +13,13 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">-->
 
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+          type="text/javascript" charset="utf-8"></script>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+          type="text/javascript" charset="utf-8"></script>
+
   <title>THV</title>
   <link rel="stylesheet" type="text/css" href="dist/css/check-page.min.css">
-  <script src="dist/libs/wow.js"></script>
-  <script>
-
-      //- new WOW().init();
-
-      wow = new WOW({
-          boxClass: 'wow',
-          animateClass: 'animated',
-          offset: 0,
-          mobile: false,
-          live: true
-      });
-      wow.init();
-
-  </script>
   <script src="dist/js/main.js"></script>
 </head>
 <body>
@@ -57,10 +47,12 @@
   <div class="content">
     <div class="address">
       <p class="address__title">Your Address</p>
-      <p class="address__address">34 gwendolen avenue</p>
+      <p class="address__address"></p>
     </div>
     <div class="sale">
-      <p class="sale__info">Future House value <span class="sale__info-percent">+ 24 % </span><span class="sale__info-note">(approximately)</span></p>
+      <p class="sale__info">Future House value
+        <span class="sale__info-percent"></span>
+        <span class="sale__info-note">(approximately)</span></p>
       <a href="#" class="sale__link">For accurate estimation book an appointment with THV™ real estate agent</a>
     </div>
     <div class="table">
@@ -112,8 +104,8 @@
     </div>
     <a href="#" class="book-btn">Book an appointment with a THV™  real estate agent</a>
   </div>
-  <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5764.047715568955!2d-79.42164592513211!3d43.751601344380404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b328390631691%3A0xf09a646fc8b62a5a!2s34%20Gwendolen%20Ave%2C%20North%20York%2C%20ON%20M2N%201A2%2C%20Canada!5e0!3m2!1sen!2s!4v1608045463682!5m2!1sen!2s" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  <div class="map" id="map">
+
   </div>
 </main>
 

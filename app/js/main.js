@@ -5,6 +5,7 @@ import { Validation } from "./validationClass";
 import { Calculator } from "./Calculator";
 import { LiveSearch } from "./LiveSearch";
 import { Question } from "./Question";
+import { showMap } from "./showMap";
 
 
 window.addEventListener('load', function () {
@@ -19,6 +20,82 @@ window.addEventListener('load', function () {
 
         menu.init();
     })();*/
+
+    (function checkPage() {
+        const page = document.querySelector('.check-page');
+        if(!page) {
+            return;
+        }
+
+        const addressElement = document.querySelector('.address__address');
+        const address = window.localStorage.getItem('address');
+        addressElement.innerHTML = address;
+        randomPercent(7, 16);
+
+        const platform = new H.service.Platform({
+            'apikey': 'UpZjlcVJKVZ8IwCPeXjfD5F0OJZnHnBHtkeRgnG6ivU',
+        });
+
+        const service = platform.getSearchService();
+        let pos = {};
+
+        service.geocode({
+            q: address
+        }, (result) => {
+            console.log(result.items[0].position.lat);
+            pos.lat = result.items[0].position.lat;
+            pos.lng = result.items[0].position.lng;
+        });
+
+        setTimeout( function () {
+
+            const defaultLayers = platform.createDefaultLayers();
+
+            const map = new H.Map(
+                document.getElementById('map'),
+                defaultLayers.vector.normal.map,
+                {
+                    zoom: 15,
+                    center: {
+                        lat: pos.lat,
+                        lng: pos.lng,
+                    }
+                });
+
+            const svgMarkup = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+\t viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+<style type="text/css">
+\t.st0{fill:#50AC2F;}
+</style>
+<g>
+\t<g>
+\t\t<path class="st0" d="M24,34.5c-2.5,0-4.5,2-4.5,4.5c0,0.7,0.2,1.5,0.5,2.1l3.7,6.7c0,0.1,0.1,0.1,0.2,0.1s0.2-0.1,0.2-0.1l3.7-6.7
+\t\t\tc0.4-0.7,0.5-1.4,0.5-2.1C28.5,36.5,26.5,34.5,24,34.5z M24,41.3c-1.2,0-2.2-1-2.2-2.2s1-2.2,2.2-2.2s2.2,1,2.2,2.2
+\t\t\tS25.2,41.3,24,41.3z"/>
+\t</g>
+</g>
+</svg>`;
+
+            const icon = new H.map.Icon(svgMarkup);
+            const coords = {
+                    lat: pos.lat,
+                    lng: pos.lng,
+                };
+            const marker = new H.map.Marker(coords, {icon: icon});
+
+            map.addObject(marker);
+            map.setCenter(coords);
+
+            console.log(map);
+        },1000);
+
+
+        function randomPercent(min, max) {
+            const percent = Math.round(Math.random() * (max - min) + min);
+            const percentElement = document.querySelector('.sale__info-percent');
+            percentElement.innerHTML = `+${String(percent)}%`;
+        }
+    })();
 
     (function questionPage() {
         const page = document.querySelector('.question-page');
