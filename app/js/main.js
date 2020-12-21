@@ -5,7 +5,6 @@ import { Validation } from "./validationClass";
 import { Calculator } from "./Calculator";
 import { LiveSearch } from "./LiveSearch";
 import { Question } from "./Question";
-import { showMap } from "./showMap";
 
 
 window.addEventListener('load', function () {
@@ -42,7 +41,6 @@ window.addEventListener('load', function () {
         service.geocode({
             q: address
         }, (result) => {
-            console.log(result.items[0].position.lat);
             pos.lat = result.items[0].position.lat;
             pos.lng = result.items[0].position.lng;
         });
