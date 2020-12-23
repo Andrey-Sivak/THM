@@ -7,9 +7,22 @@
     margin: 0 auto 40px;
     width: fit-content;
     padding: 0;
+
+    @include response-to(small) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 0;
+    }
     
     &__item {
       color: #fff;
+
+      @include response-to(small) {
+        margin-bottom: 20px;
+      }
       
       &:hover {
         color: #fff;

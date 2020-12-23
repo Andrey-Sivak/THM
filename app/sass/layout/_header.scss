@@ -1,6 +1,10 @@
 .header {
   background-color: #252323;
 
+  @include response-to(small) {
+    padding: 38px 0 15px;
+  }
+
   & .container {
     display: flex;
     align-items: center;
@@ -28,6 +32,10 @@
           text-decoration: underline;
         }
       }
+
+      @include response-to(small) {
+        display: none;
+      }
     }
 
     &_btn {
@@ -49,6 +57,10 @@
         $shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
         box-shadow: $shadow;
         text-shadow: $shadow;
+      }
+
+      @include response-to(small) {
+        display: none;
       }
     }
   }

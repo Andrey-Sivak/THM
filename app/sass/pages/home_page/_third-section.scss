@@ -7,8 +7,18 @@
     justify-content: space-between;
     margin-top: 25px;
 
+    @include response-to(small) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     &_item {
       width: 18%;
+
+      @include response-to(small) {
+        width: 45%;
+        margin: 2%;
+      }
     }
 
     .review {

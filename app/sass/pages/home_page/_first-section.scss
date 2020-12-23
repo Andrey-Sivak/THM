@@ -9,6 +9,28 @@
   min-height: 600px;
   margin: 0 auto;
   color: #fff;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(#000, .15);
+    z-index: 1;
+  }
+
+  @include response-to(medium) {
+    padding-top: 60px;
+    min-height: 300px;
+  }
+
+  & .container {
+    position: relative;
+    z-index: 2;
+  }
 
   &__caption {
     margin-bottom: 73px;
@@ -17,6 +39,16 @@
     font-size: 40px;
     line-height: 48px;
     text-transform: capitalize;
+
+    @include response-to(medium) {
+      font-size: 35px;
+    }
+
+    @include response-to(small) {
+      font-size: 32px;
+      line-height: 36px;
+      margin-bottom: 45px;
+    }
   }
 
   & .form {
@@ -30,6 +62,16 @@
       line-height: 38px;
       text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
       margin-bottom: 18px;
+
+      @include response-to(medium) {
+        font-size: 28px;
+      }
+
+      @include response-to(small) {
+        font-size: 21px;
+        line-height: 1;
+        text-shadow: 0 0 20px rgba(0, 0, 0, 1)
+      }
     }
 
     &-group {
@@ -63,6 +105,11 @@
         top: 60px;
         left: 0;
 
+        @include response-to(small) {
+          width: 100%;
+          top: 50px;
+        }
+
         &_link {
           text-align: left;
           padding: 5px 10px;
@@ -71,6 +118,10 @@
           font-size: 18px;
           display: block;
           cursor: pointer;
+
+          @include response-to(small) {
+            font-size: 16px;
+          }
 
           &:hover {
             background-color: lighten(#e5e3df, 5%);
@@ -102,6 +153,11 @@
         position: relative;
         z-index: 1;
 
+        @include response-to(small) {
+          width: 75%;
+          padding: 14px 10px;
+        }
+
         &.warn {
           border: 1px solid red;
           box-shadow: 0 0 15px red;
@@ -128,6 +184,11 @@
           background-color: $secondary-color;
         }
 
+        @include response-to(small) {
+          width: 25%;
+          background-position: center 10px;
+        }
+
         &.active {
           background-size: 70px;
           background-position: center;
@@ -151,6 +212,13 @@
       background-position: center;
       width: fit-content;
       margin: 0 auto;
+
+      @include response-to(small) {
+        font-size: 16px;
+        line-height: 1;
+        letter-spacing: 0;
+        padding: 5px 0;
+      }
     }
   }
 }

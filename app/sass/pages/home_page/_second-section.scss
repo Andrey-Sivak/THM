@@ -2,16 +2,38 @@
   margin-top: 41px;
   margin-bottom: 100px;
 
+  @include response-to(small) {
+    margin-bottom: 50px;
+  }
+
   &__projects {
     margin: 41px 0;
     display: flex;
     justify-content: space-between;
     width: 100%;
 
+    @include response-to(large) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     &_item {
       width: 18%;
       border: 1px solid #DCDCDC;
       padding-bottom: 10px;
+
+      @include response-to(large) {
+        width: 28%;
+        margin: 2%;
+      }
+
+      @include response-to(medium) {
+        width: 38%;
+      }
+
+      @include response-to(small) {
+        width: 80%;
+      }
 
       & .project__img {
         width: 100%;

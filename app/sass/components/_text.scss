@@ -14,6 +14,18 @@
     top: 50%;
     transform: translateY(-50%);
     width: 40%;
+
+    @include response-to(large) {
+      width: 35%;
+    }
+
+    @include response-to(medium) {
+      width: 30%;
+    }
+
+    @include response-to(small) {
+      width: 10%;
+    }
   }
 
   &:before {
