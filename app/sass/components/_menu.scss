@@ -1,12 +1,101 @@
+.forbid-scroll {
+  overflow-y: hidden;
+}
+
+.header {
+
+  @include response-to(small) {
+    position: relative;
+  }
+
+  &-menu__btn {
+    display: none;
+    height: 20px;
+    width: 28px;
+    cursor: pointer;
+    @include transition-ease;
+    z-index: 110;
+    position: relative;
+
+    @include response-to(small) {
+      display: block;
+    }
+  }
+
+  &-menu__burger {
+    @include pos-absolute(.5rem, 0);
+    width: 28px;
+    height: 3px;
+    background-color: #fff;
+
+    @at-root %burger_pseudo {
+      content: '';
+      position: absolute;
+      height: 3px;
+      background-color: #fff;
+      @include transition-ease;
+    }
+
+    &:before {
+      @extend %burger_pseudo;
+      top: -8px;
+      width: 28px;
+    }
+
+    &:after {
+      @extend %burger_pseudo;
+      width: 20px;
+      top: 8px;
+    }
+
+    &.active {
+      transform: rotate(720deg);
+      background: transparent;
+
+      &:before {
+        transform: rotate(45deg) translate(5px, 8px);
+        background-color: #fff;
+      }
+
+      &:after {
+        transform: rotate(-45deg) translate(3px, -7px);
+        width: 28px;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
 .menu {
   background-color: #fff;
   padding: 15px 0;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
 
+  @include response-to(small) {
+    transform: translateX(100vw);
+    @include transition-ease;
+    padding: 0;
+    z-index: 100;
+    position: fixed;
+    top: 90px;
+    bottom: 0;
+    background-color: #fff;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+
   & .container {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include response-to(small) {
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 15vh;
+    }
   }
 
   &__item {
@@ -18,6 +107,27 @@
     color: #000;
     position: relative;
 
+    @include response-to(large) {
+      padding: 0 30px;
+      font-size: 20px;
+    }
+
+    @include response-to(medium) {
+      padding: 0 20px;
+    }
+
+    @include response-to(small) {
+      margin-bottom: 30px;
+      text-align: center;
+      padding: 0;
+      transform: translateX(100vw);
+      @include transition-ease;
+
+      &.active {
+        transform: translateX(0);
+      }
+    }
+
     &:not(:last-of-type):after {
       position: absolute;
       right: 0;
@@ -26,11 +136,21 @@
       top: 0;
       bottom: 0;
       background-color: rgba(#000, .4);
+
+      @include response-to(small) {
+        content: none;
+      }
     }
 
     &:hover {
       color: $secondary-color;
       text-decoration: underline;
     }
+  }
+}
+
+@for $i from 1 through 5 {
+  .m a:nth-child(#{$i}) {
+    transition-delay: ( $i * .1s ) + 0.25s;
   }
 }

@@ -7,7 +7,7 @@ class Menu {
         this.activeClass = options.activeClass;
         this.menu = options.menu;
         this.menuWrap = this.menu.parentElement;
-        this.menuItems = this.menu.querySelector('.menu').children;
+        this.menuItems = this.menu.querySelector('.m').children;
         this.menuItems = Array.prototype.slice.call( this.menuItems );
 
         this.toggleMenu = this.toggleMenu.bind(this);
@@ -18,6 +18,7 @@ class Menu {
         this.menuWrap.classList.toggle( this.activeClass );
         this.menu.classList.toggle( this.activeClass );
         this.menuItems.forEach( item => item.classList.toggle( this.activeClass ) );
+        document.body.classList.toggle( 'forbid-scroll' );
     }
 
     listener() {

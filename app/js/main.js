@@ -9,16 +9,16 @@ import { Question } from "./Question";
 
 window.addEventListener('load', function () {
 
-    /*(function menu() {
+    (function menu() {
         const menu = new Menu({
             button: document.querySelector('.header-menu__btn'),
             hamburger: document.querySelector('.header-menu__burger'),
-            menu: document.querySelector('.header__menu'),
+            menu: document.querySelector('.menu'),
             activeClass: 'active'
         });
 
         menu.init();
-    })();*/
+    })();
 
     (function checkPage() {
         const page = document.querySelector('.check-page');
@@ -61,18 +61,18 @@ window.addEventListener('load', function () {
                 });
 
             const svgMarkup = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-\t viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
-<style type="text/css">
-\t.st0{fill:#50AC2F;}
-</style>
-<g>
-\t<g>
-\t\t<path class="st0" d="M24,34.5c-2.5,0-4.5,2-4.5,4.5c0,0.7,0.2,1.5,0.5,2.1l3.7,6.7c0,0.1,0.1,0.1,0.2,0.1s0.2-0.1,0.2-0.1l3.7-6.7
-\t\t\tc0.4-0.7,0.5-1.4,0.5-2.1C28.5,36.5,26.5,34.5,24,34.5z M24,41.3c-1.2,0-2.2-1-2.2-2.2s1-2.2,2.2-2.2s2.2,1,2.2,2.2
-\t\t\tS25.2,41.3,24,41.3z"/>
-\t</g>
-</g>
-</svg>`;
+            \t viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+            <style type="text/css">
+            \t.st0{fill:#50AC2F;}
+            </style>
+            <g>
+            \t<g>
+            \t\t<path class="st0" d="M24,34.5c-2.5,0-4.5,2-4.5,4.5c0,0.7,0.2,1.5,0.5,2.1l3.7,6.7c0,0.1,0.1,0.1,0.2,0.1s0.2-0.1,0.2-0.1l3.7-6.7
+            \t\t\tc0.4-0.7,0.5-1.4,0.5-2.1C28.5,36.5,26.5,34.5,24,34.5z M24,41.3c-1.2,0-2.2-1-2.2-2.2s1-2.2,2.2-2.2s2.2,1,2.2,2.2
+            \t\t\tS25.2,41.3,24,41.3z"/>
+            \t</g>
+            </g>
+            </svg>`;
 
             const icon = new H.map.Icon(svgMarkup);
             const coords = {
@@ -84,7 +84,6 @@ window.addEventListener('load', function () {
             map.addObject(marker);
             map.setCenter(coords);
 
-            console.log(map);
         },1000);
 
 
