@@ -192,7 +192,7 @@ class LiveSearch {
                 ]);
 
                 setTimeout( () => {
-                    self.submitSuccessAddress(self.value, 'http://localhost:3000/calculator.html');
+                    self.submitSuccessAddress(self.value, './calculator.html');
                 },8000);
             }
         })
