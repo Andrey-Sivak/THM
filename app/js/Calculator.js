@@ -25,21 +25,14 @@ class Calculator {
     }
 
     checkMouseCoords(e) {
-        let eventDoc = 0;
-        let doc = 0;
-        let body = 0;
 
-        if (e.pageX == null && e.clientX != null) {
-            eventDoc = (e.target && e.target.ownerDocument) || document;
-            doc = eventDoc.documentElement;
-            body = eventDoc.body;
+        const touch = e.changedTouches[0];
 
-            e.pageX = e.clientX +
-                (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-                (doc && doc.clientLeft || body && body.clientLeft || 0);
+        if(touch) {
+            this.data.mouseX = touch.pageX;
+        } else {
+            this.data.mouseX = e.pageX;
         }
-
-        this.data.mouseX = e.pageX;
 
         let diff = this.data.mouseX - this.data.handleLeft - this.data.handleWidth;
 
@@ -82,11 +75,11 @@ class Calculator {
 
     changeInput() {
         this.input.setAttribute('value', this.value.innerHTML);
-        console.log(this.value.innerHTML);
     }
 
     changeValue() {
         document.body.addEventListener('mousemove', this.checkMouseCoords);
+        document.body.addEventListener('touchmove', this.checkMouseCoords);
     }
 
     addButtonsLink() {
@@ -124,13 +117,20 @@ class Calculator {
         this.handle.addEventListener('mousedown', function () {
             self.changeValue();
         });
+        this.handle.addEventListener('touchstart', function () {
+            self.changeValue();
+        });
 
 
 
         document.body.addEventListener('mouseup', function () {
             this.removeEventListener('mousemove', self.checkMouseCoords);
             self.changeInput();
-        })
+        });
+        document.body.addEventListener('touchend', function () {
+            this.removeEventListener('touchmove', self.checkMouseCoords);
+            self.changeInput();
+        });
     }
 }
 
