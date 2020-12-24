@@ -6,6 +6,10 @@
 
   p.page-caption {
     margin-bottom: 37px;
+
+    @include response-to(small) {
+      margin-bottom: 15px;
+    }
   }
 
   h1.page-caption {
@@ -19,8 +23,8 @@
     padding-top: 100px;
     padding-bottom: 60px;
 
-    &:before {
-
+    @include response-to(small) {
+      width: 85%;
     }
 
     &__value {
@@ -153,6 +157,10 @@
       width: 600px;
       display: flex;
       justify-content: space-around;
+
+      @include response-to(small) {
+        width: 100%;
+      }
     }
 
     &__btn {
@@ -180,6 +188,12 @@
         @include on-event {
           @include btn-color($main-color);
         }
+      }
+
+      @include response-to(small) {
+        width: 45%;
+        font-size: 20px;
+        padding: 10px 0;
       }
     }
   }
