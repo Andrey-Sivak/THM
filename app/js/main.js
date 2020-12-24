@@ -10,6 +10,10 @@ import { Question } from "./Question";
 window.addEventListener('load', function () {
 
     (function menu() {
+        if(!document.querySelector('.m') && !document.querySelector('.header-menu__btn')) {
+            return;
+        }
+
         const menu = new Menu({
             button: document.querySelector('.header-menu__btn'),
             hamburger: document.querySelector('.header-menu__burger'),
