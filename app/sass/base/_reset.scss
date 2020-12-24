@@ -25,4 +25,11 @@ a {
 }
 body {
   font-family: $myriad-pro, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 200px;
+
+  @include response-to(small) {
+    padding-bottom: 330px;
+  }
 }

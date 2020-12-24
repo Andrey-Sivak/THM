@@ -1,6 +1,9 @@
 .footer {
   background-color: #000;
   padding: 40px 0 34px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
   .menu {
     background-color: inherit;
@@ -15,6 +18,10 @@
       align-items: center;
       text-align: center;
       margin-bottom: 0;
+      position: relative;
+      transform: none;
+      top: 0;
+      z-index: 99;
     }
     
     &__item {
@@ -22,6 +29,7 @@
 
       @include response-to(small) {
         margin-bottom: 20px;
+        transform: none;
       }
       
       &:hover {
