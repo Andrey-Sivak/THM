@@ -7,6 +7,11 @@
   .page-caption {
     margin-top: 83px;
     margin-bottom: 53px;
+
+    @include response-to(small) {
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
   }
 
   .form {
@@ -68,6 +73,11 @@
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
+
+      @include response-to(small) {
+        position: static;
+        font-size: 20px;
+      }
     }
 
     .check-label {
