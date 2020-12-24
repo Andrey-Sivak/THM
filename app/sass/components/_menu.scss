@@ -10,8 +10,8 @@
 
   &-menu__btn {
     display: none;
-    height: 20px;
-    width: 28px;
+    height: 27px;
+    width: 41px;
     cursor: pointer;
     @include transition-ease;
     z-index: 110;
@@ -23,29 +23,31 @@
   }
 
   &-menu__burger {
-    @include pos-absolute(.5rem, 0);
-    width: 28px;
-    height: 3px;
-    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 41px;
+    height: 5px;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(196, 196, 196, 0.99) 100%);
 
     @at-root %burger_pseudo {
       content: '';
       position: absolute;
-      height: 3px;
-      background-color: #fff;
+      height: 5px;
+      background: linear-gradient(180deg, #FFFFFF 0%, rgba(196, 196, 196, 0.99) 100%);
       @include transition-ease;
     }
 
     &:before {
       @extend %burger_pseudo;
-      top: -8px;
-      width: 28px;
+      top: -10px;
+      width: 41px;
     }
 
     &:after {
       @extend %burger_pseudo;
-      width: 20px;
-      top: 8px;
+      width: 30px;
+      top: 10px;
     }
 
     &.active {
@@ -58,8 +60,8 @@
       }
 
       &:after {
-        transform: rotate(-45deg) translate(3px, -7px);
-        width: 28px;
+        transform: rotate(-45deg) translate(6px, -9px);
+        width: 41px;
         background-color: #fff;
       }
     }
@@ -80,6 +82,8 @@
     top: 90px;
     bottom: 0;
     background-color: #fff;
+    left: 0;
+    right: 0;
   }
 
   &.active {
