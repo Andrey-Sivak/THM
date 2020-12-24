@@ -7,6 +7,10 @@
   .page-caption {
     padding-top: 80px;
     padding-bottom: 56px;
+
+    @include response-to(medium) {
+      padding: 30px 0;
+    }
   }
 
   .question {
@@ -27,10 +31,22 @@
       margin: 25px auto 100px;
       position: relative;
 
+      @include response-to(small) {
+        justify-content: space-between;
+      }
+
       .btn {
         margin: 0 1% 2%;
         @include btn($width: 31%, $padding: 21px);
         @include transition-ease;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        @include response-to(small) {
+          width: 47%;
+          margin-bottom: 5%;
+          font-size: 19px;
+        }
 
         &.dark-green {
           @include btn-color($color: #50AC2F);
@@ -62,6 +78,15 @@
         font-size: 18px;
         line-height: 140.6%;
         text-transform: capitalize;
+
+        @include response-to(medium) {
+          position: static;
+          width: 100%;
+          transform: unset;
+          text-align: center;
+          font-size: 25px;
+          margin-bottom: 20px;
+        }
       }
     }
   }
