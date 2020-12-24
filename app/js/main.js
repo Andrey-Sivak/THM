@@ -36,17 +36,15 @@ window.addEventListener('load', function () {
         });
 
         const service = platform.getSearchService();
-        let pos = {};
 
         service.geocode({
             q: address
         }, (result) => {
-            pos.lat = result.items[0].position.lat;
-            pos.lng = result.items[0].position.lng;
+
+            showOnMap(result.items[0].position.lat, result.items[0].position.lng)
         });
 
-        setTimeout( function () {
-
+        function showOnMap(x, y) {
             const defaultLayers = platform.createDefaultLayers();
 
             const map = new H.Map(
@@ -55,8 +53,8 @@ window.addEventListener('load', function () {
                 {
                     zoom: 15,
                     center: {
-                        lat: pos.lat,
-                        lng: pos.lng,
+                        lat: x,
+                        lng: y,
                     }
                 });
 
@@ -76,15 +74,14 @@ window.addEventListener('load', function () {
 
             const icon = new H.map.Icon(svgMarkup);
             const coords = {
-                    lat: pos.lat,
-                    lng: pos.lng,
-                };
+                lat: x,
+                lng: y,
+            };
             const marker = new H.map.Marker(coords, {icon: icon});
 
             map.addObject(marker);
             map.setCenter(coords);
-
-        },1000);
+        }
 
 
         function randomPercent(min, max) {
