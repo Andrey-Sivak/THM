@@ -7,9 +7,20 @@
   margin-bottom: 100px;
   display: flex;
   justify-content: space-between;
+  position: relative;
+
+  @include response-to(small) {
+    margin-top: 47px;
+  }
 
   .content {
-    width: 52%;
+    width: 50%;
+
+    @include response-to(small) {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .address {
@@ -17,6 +28,11 @@
     padding-bottom: 7px;
     border-bottom: 1px solid #D6CECE;
     margin-bottom: 7px;
+
+    @include response-to(small) {
+      width: 100%;
+      padding-bottom: 19px;
+    }
 
     &__title {
       font-size: 18px;
@@ -27,6 +43,11 @@
       font-weight: bold;
       font-size: 32px;
       line-height: 38px;
+
+      @include response-to(small) {
+        font-size: 24px;
+        line-height: 29px;
+      }
     }
   }
 
@@ -39,6 +60,10 @@
       line-height: 140.6%;
       color: #000;
       margin-bottom: 5px;
+
+      @include response-to(small) {
+        font-size: 24px;
+      }
 
       &-percent {
         color: $secondary-color;
@@ -68,9 +93,32 @@
     }
   }
 
+  .map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 400px;
+
+    @include response-to(large) {
+      right: 25px;
+    }
+
+    @include response-to(small) {
+      position: static;
+      width: 100%;
+      height: 210px;
+      margin-bottom: 35px;
+    }
+  }
+
   .table {
     margin-bottom: 60px;
     width: 100%;
+
+    @include response-to(small) {
+      margin-bottom: 40px;
+    }
 
     &__title {
       font-size: 20px;
@@ -83,7 +131,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       padding: 5px 0;
 
       &:first-of-type {
@@ -104,6 +152,7 @@
       }
 
       &_offer {
+        min-width: 155px;
         padding-left: 27px;
         background-size: 17px;
         background-repeat: no-repeat;
@@ -118,6 +167,10 @@
       font-style: italic;
       font-size: 18px;
       line-height: 22px;
+
+      @include response-to(small) {
+        text-align: center;
+      }
     }
   }
 
@@ -125,6 +178,10 @@
 
     .step {
       margin-bottom: 41px;
+
+      @include response-to(small) {
+        margin-bottom: 23px;
+      }
 
       &__caption {
         font-weight: bold;
@@ -153,16 +210,6 @@
           text-decoration: none;
         }
       }
-    }
-  }
-
-  .map {
-    width: 45%;
-    height: 350px;
-
-    & > iframe {
-      width: 100%;
-      height: 400px;
     }
   }
 }
