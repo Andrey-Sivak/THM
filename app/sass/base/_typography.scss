@@ -2,9 +2,9 @@ $myriad-pro: 'MyriadPro';
 
 $dir: '../fonts';
 
-@include font-face( $dir, $myriad-pro, 'Bold' );
 @include font-face( $dir, $myriad-pro, 'Regular');
 @include font-face( $dir, $myriad-pro, 'Medium');
-@include font-face( $dir, $myriad-pro, 'SemiBold', $extension: 'otf' );
-@include font-face( $dir, $myriad-pro, 'Light', $extension: 'otf' );
+@include font-face( $dir, $myriad-pro, 'Bold', $extension: 'otf');
+@include font-face( $dir, $myriad-pro, 'SemiBold', $extension: 'otf');
+@include font-face( $dir, $myriad-pro, 'Light', $extension: 'otf');
 @include font-face( $dir, $myriad-pro, 'Black', $extension: 'otf');
