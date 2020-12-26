@@ -26,9 +26,10 @@ class Calculator {
 
     checkMouseCoords(e) {
 
-        const touch = e.changedTouches[0];
+        const type = e.type;
 
-        if(touch) {
+        if(type === 'touchmove') {
+            const touch = e.changedTouches[0];
             this.data.mouseX = touch.pageX;
         } else {
             this.data.mouseX = e.pageX;
