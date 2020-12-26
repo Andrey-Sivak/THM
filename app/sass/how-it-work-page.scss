@@ -1,9 +1,13 @@
 @import "main";
 
 .how-it-work-page {
-  min-height: 80vh;
   margin-top: 85px;
   margin-bottom: 100px;
+
+  @include response-to(medium) {
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
 
   .caption {
     margin-bottom: 80px;
@@ -14,6 +18,14 @@
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+
+    @include response-to(medium) {
+      margin-bottom: 30px;
+    }
+
+    @include response-to(small) {
+      font-size: 30px;
+    }
   }
 
   .content {
@@ -21,14 +33,35 @@
     align-items: center;
     width: 100%;
 
+    @include response-to(medium) {
+      flex-wrap: wrap;
+    }
+
     .left {
       width: 50%;
+
+      @include response-to(medium) {
+        width: 100%;
+      }
 
       & > p {
         max-width: 370px;
         font-weight: bold;
         font-size: 36px;
         line-height: 140.6%;
+
+        @include response-to(large) {
+          max-width: 265px;
+        }
+
+        @include response-to(medium) {
+          max-width: unset;
+          text-align: center;
+        }
+
+        @include response-to(small) {
+          font-size: 25px;
+        }
 
         & > span {
           text-transform: uppercase;
@@ -39,22 +72,59 @@
 
     .right {
 
+      @include response-to(medium) {
+        margin: 20px auto;
+      }
+
       &__item {
         display: flex;
         align-items: center;
         margin-bottom: 65px;
         position: relative;
 
-        &:nth-last-of-type(2) {
+        @include response-to(medium) {
+          margin-bottom: 35px;
+        }
+
+        &_btn {
+
+          @include response-to(large) {
+            max-width: 60px;
+          }
+
+          & > img {
+
+            @include response-to(large) {
+              width: 100%;
+            }
+
+            @include response-to(small) {
+              width: 80%;
+            }
+          }
+        }
+
+        & .wrap {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 200px;
+
+          @include response-to(large) {
+            width: 140px;
+          }
+
+          @include response-to(medium) {
+            display: none;
+          }
+        }
+
+        &:nth-of-type(2) {
 
           .wrap {
-            position: absolute;
-            top: 50%;
             transform: translate(-120%, -50%);
-            left: 0;
             height: 1px;
             background-color: rgba(0, 0, 0, 0.3);
-            width: 200px;
 
             & > span {
               position: relative;
@@ -87,11 +157,8 @@
         &:last-of-type {
 
           .wrap {
-            position: absolute;
             height: calc(100% + 65px);
-            width: 200px;
             top: -108px;
-            left: 0;
             transform: translateX(-120%);
 
             .inner {
@@ -129,6 +196,13 @@
                 transform: rotate(28deg) translateX(-50%);
                 bottom: 0;
                 right: -57%;
+
+                @include response-to(large) {
+                  width: 168px;
+                  transform: rotate(31deg) translateX(-50%);
+                  bottom: -3px;
+                  right: -62%;
+                }
               }
             }
           }
@@ -137,11 +211,8 @@
         &:first-of-type {
 
           .wrap {
-            position: absolute;
             height: calc(100% + 65px);
-            width: 200px;
             top: 45px;
-            left: 0;
             transform: translateX(-120%);
 
 
@@ -180,6 +251,13 @@
                 transform: rotate(-28deg) translateX(-50%);
                 top: 0;
                 right: -57%;
+
+                @include response-to(large) {
+                  width: 165px;
+                  transform: rotate(-31deg) translateX(-36%);
+                  top: 10px;
+                  right: -63px;
+                }
               }
             }
           }
@@ -197,6 +275,15 @@
           color: $secondary-color;
           text-decoration: underline;
           margin-bottom: 15px;
+
+          @include response-to(large) {
+            font-size: 25px;
+            margin-left: 18px;
+          }
+
+          @include response-to(small) {
+            font-size: 20px;
+          }
         }
       }
     }
