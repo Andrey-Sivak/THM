@@ -1,0 +1,74 @@
+@import "main";
+
+.video-page {
+  width: 780px;
+  margin-bottom: 130px;
+
+  @include response-to(medium) {
+    width: 80%;
+  }
+
+  @include response-to(small) {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 35px auto 16px;
+
+    &__item {
+      color: $secondary-color;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 140.6%;
+
+      @include response-to(small) {
+        font-size: 20px;
+      }
+
+      &.help {
+
+        @include response-to(small) {
+          display: none;
+        }
+      }
+
+      &.title {
+        max-width: 65%;
+      }
+
+      &.back {
+        text-decoration: underline;
+        padding-left: 32px;
+        background-size: 20px;
+        background-position: center left;
+        background-repeat: no-repeat;
+        background-image: url("../img/link-arr-green.png");
+
+        @include on-event {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .video-wrap {
+    margin: 0 auto 36px;
+
+    iframe {
+      width: 100%;
+      height: 500px;
+
+      @include response-to(medium) {
+        height: 350px;
+      }
+
+      @include response-to(small) {
+        height: 250px;
+      }
+    }
+  }
+}
