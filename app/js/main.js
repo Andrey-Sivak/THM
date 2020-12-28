@@ -172,7 +172,7 @@ window.addEventListener('load', function () {
 
             if(valid.success) {
                 setTimeout( function () {
-                    document.location.href = '/thank-you.html';
+                    document.location.href = './thank-you.html';
                 },1000)
             }
         });
