@@ -18,14 +18,18 @@
     &__top-note {
       text-align: center;
       font-weight: 600;
-      font-size: 18px;
+      font-size: 24px;
       line-height: 140.6%;
       text-transform: capitalize;
+
+      @include response-to(small) {
+        font-size: 18px;
+      }
     }
 
     &__btns {
       display: flex;
-      max-width: 480px;
+      max-width: 580px;
       width: 100%;
       flex-wrap: wrap;
       margin: 25px auto 100px;
@@ -36,8 +40,8 @@
       }
 
       .btn {
-        margin: 0 1% 2%;
-        @include btn($width: 31%, $padding: 21px);
+        margin: 0 1% 4%;
+        @include btn($width: 31%, $padding: 30px);
         @include transition-ease;
         padding-left: 10px;
         padding-right: 10px;
@@ -46,6 +50,8 @@
           width: 47%;
           margin-bottom: 5%;
           font-size: 19px;
+          padding-top: 21px;
+          padding-bottom: 21px;
         }
 
         &.dark-green {
@@ -75,7 +81,7 @@
         transform: translateY(-50%) translateX(-100%);
         left: -45px;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 24px;
         line-height: 140.6%;
         text-transform: capitalize;
 
